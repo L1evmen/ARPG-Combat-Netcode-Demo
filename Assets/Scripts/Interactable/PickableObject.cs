@@ -13,7 +13,7 @@ public class PickableObject : InteractableObject
         promptRange = 3f;
         promptHeight = 1f;
         promptWorldSpace = true;
-        promptFont = Resources.Load<TMP_FontAsset>("ICE SDF");
+        promptFont = TMP_Settings.defaultFontAsset;
     }
 
     // 接触玩家时自动拾取

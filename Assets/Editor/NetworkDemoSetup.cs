@@ -163,7 +163,7 @@ public static class NetworkDemoSetup
     {
         RemoveRoot(scene, "Network Lobby Canvas");
         NetworkSessionController session = FindInScene<NetworkSessionController>(scene);
-        Font font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        Font font = AssetDatabase.LoadAssetAtPath<Font>("Assets/Fonts/haima.ttf");
 
         GameObject canvasObject = new GameObject(
             "Network Lobby Canvas",

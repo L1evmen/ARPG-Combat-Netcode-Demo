@@ -346,7 +346,7 @@ public class PlayerPropertyUI : MonoBehaviour
         tmp.text = content;
         tmp.fontSize = size;
         tmp.alignment = align;
-        tmp.font = uiFont != null ? uiFont : Resources.Load<TMP_FontAsset>("ICE SDF");
+        tmp.font = uiFont != null ? uiFont : TMP_Settings.defaultFontAsset;
         tmp.color = Color.white;
         tmp.raycastTarget = false;
         return tmp;

@@ -6,6 +6,7 @@
 
 - Unity Package Manager 依赖遵循各 Unity 包自身的许可条款。
 - `Assets/TextMesh Pro` 为 Unity TextMesh Pro Essential Resources。
+- `Assets/Fonts/haima.ttf` 及其派生的 `haima SDF.asset` 版权归上海字魂网络科技有限公司；仓库发布者已取得公开分发授权，本仓库不授予授权范围之外的额外权利。
 - `Assets/UnityURPToonLitShaderExample-master` 附带其原始 `LICENSE` 与 `README.md`。
 - `Assets/DynamicBone` 保留原始 `ReadMe.txt`；使用和再分发应以其来源许可为准。
 - `Assets/LowPolyMegapolis`、`Assets/Resources` 下的角色、动画、音乐及其他美术资源仅用于非商业作品演示，其许可需由仓库发布者逐项确认。

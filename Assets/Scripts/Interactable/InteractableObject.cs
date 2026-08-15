@@ -50,7 +50,7 @@ public class InteractableObject : MonoBehaviour
         tmp.fontSize = 14;
         tmp.alignment = TextAlignmentOptions.Center;
         if (promptFont == null)
-            promptFont = Resources.Load<TMP_FontAsset>("ICE SDF");
+            promptFont = TMP_Settings.defaultFontAsset;
         if (promptFont != null)
             tmp.font = promptFont;
         tmp.color = Color.white;

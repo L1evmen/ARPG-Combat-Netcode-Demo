@@ -25,7 +25,7 @@ public class MessageUI : MonoBehaviour
         if (uiFont != null)
             messageText.font = uiFont;
         else
-            messageText.font = Resources.Load<TMP_FontAsset>("ICE SDF");
+            messageText.font = TMP_Settings.defaultFontAsset;
         Hide();
     }
 
