@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f62f96af69be5b458c5a84bf7f17080, type: 3}
+  m_Name: Consumable_Mushroom
+  m_EditorClassIdentifier: 
+  id: 4
+  name: "\u8FF7\u5E7B\u8611\u83C7"
+  itemType: 1
+  description: "\u4E91\u5357\u91C7\u7684"
+  propertyList:
+  - propertyType: 2
+    value: 30
+  icon: {fileID: 21300000, guid: 3dd750cb4c6e52041806d8937fba496b, type: 3}
+  prefab: {fileID: 6262013468006018328, guid: a8d4a752b1ca7274b8b78f20c18b6a11, type: 3}
+  gripPosition: {x: -0.053, y: 0.088, z: 0.004}
+  gripRotation: {x: -8.905, y: 23.119, z: -68.24}
+  gripScale: {x: 3, y: 3, z: 3}

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f62f96af69be5b458c5a84bf7f17080, type: 3}
+  m_Name: Weapon_Javelin
+  m_EditorClassIdentifier: 
+  id: 2
+  name: "\u9F99\u80C6\u4EAE\u94F6\u67AA"
+  itemType: 0
+  description: "\u957F\u957F\u7684\u6728\u5934\u6807\u67AA"
+  propertyList:
+  - propertyType: 4
+    value: 100
+  icon: {fileID: 21300000, guid: 0b97d8b2af7616345913bcee4a3a6d7b, type: 3}
+  prefab: {fileID: 419594480213487122, guid: d5fc5e3df29efad46931af35bc829938, type: 3}
+  gripPosition: {x: 0, y: 0, z: 0}
+  gripRotation: {x: 0, y: 0, z: 0}
+  gripScale: {x: 0.45, y: 0.45, z: 0.9}
