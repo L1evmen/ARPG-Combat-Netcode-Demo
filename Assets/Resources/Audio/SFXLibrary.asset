@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b993cff5d3f141499ce1aa8c071db1b, type: 3}
+  m_Name: SFXLibrary
+  m_EditorClassIdentifier: 
+  entries:
+  - key: combat_swing
+    clip: {fileID: 8300000, guid: 587b516f960e7a24cb0d376b77aec933, type: 3}
+    defaultVolume: 0.2
+  - key: combat_hit
+    clip: {fileID: 8300000, guid: f35666f16089a7044aabd6799b52005f, type: 3}
+    defaultVolume: 0.2
+  - key: ui_button_click
+    clip: {fileID: 0}
+    defaultVolume: 1
+  - key: footstep_default
+    clip: {fileID: 0}
+    defaultVolume: 1

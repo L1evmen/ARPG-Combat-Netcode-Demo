@@ -1,0 +1,44 @@
+# Unity generated
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# IDE generated
+/.vs/
+/.vscode/
+/.idea/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.tmp
+*.pdb
+*.mdb
+
+# Build and source-package artifacts
+*.apk
+*.aab
+*.app
+*.unitypackage
+*.mp4
+/RpgDemo/
+
+# Local tooling and personal files
+/node_modules/
+/KeyConfig/
+*.log
+*.pdf
+*.pptx
+~$*
+
+# OS generated
+.DS_Store
+Thumbs.db
+

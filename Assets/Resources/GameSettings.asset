@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe17b2990ebb7040a4cccff7dfb6f05, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  _masterVolume: 1
+  _bgmVolume: 0.8
+  _sfxVolume: 1
+  _mouseSensitivity: 1
+  _keyBindings:
+  - ActionName: Attack
+    DisplayName: "\u653B\u51FB"
+    BindingPath: <Mouse>/leftButton
+  - ActionName: 'Crouch '
+    DisplayName: "\u8E72\u4E0B"
+    BindingPath: <Keyboard>/c
+  - ActionName: ' Ctrl '
+    DisplayName: "\u5207\u6362\u6A21\u5F0F"
+    BindingPath: <Keyboard>/leftCtrl
+  - ActionName: Jump
+    DisplayName: "\u8DF3\u8DC3"
+    BindingPath: <Keyboard>/space
+  - ActionName: Interact
+    DisplayName: "\u4EA4\u4E92"
+    BindingPath: <Keyboard>/e
+  - ActionName: Sprint
+    DisplayName: "\u51B2\u523A"
+    BindingPath: <Keyboard>/leftShift
+  _targetFrameRate: 60
+  _vSync: 1
