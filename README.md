@@ -1,8 +1,8 @@
 # 3D 动作 RPG Demo（Unity 客户端）
 
 > Unity 2023.1.1f1 · 单人战斗 + 双人局域网联机
-> [单机演示视频（B 站）](https://www.bilibili.com/video/BV1SwEy6sEEe/)
-> [状态同步演示视频（B 站）](https://www.bilibili.com/video/BV1HfYW6dExK/)
+[单机演示视频（B 站）](https://www.bilibili.com/video/BV1SwEy6sEEe/)
+[状态同步演示视频（B 站）](https://www.bilibili.com/video/BV1HfYW6dExK/)
 
 
 独立设计并开发的第三人称动作 RPG 演示项目，包含连招战斗、Boss AI、目标锁定、背包装备、任务存档、设置与音频、局域网联机等模块。项目采用模块化、事件驱动的组织方式，背包 UI 使用 MVC 分层，可分别构建和运行单机与联机演示场景。
@@ -18,8 +18,6 @@
 ### 局域网状态同步
 
 基于 Netcode for GameObjects 与 Unity Transport 实现双人 Host / Client 联机：
-
-> [▶ 观看状态同步专项演示（B 站）](https://www.bilibili.com/video/BV1HfYW6dExK/)
 
 - 以 **20 Hz** 同步玩家与 Boss 的位姿、动画参数、动作状态和装备信息；
 - 远端副本使用 **100 ms 插值缓冲**，处理乱序快照并按序号去重，在包间隙内进行最长 **120 ms 的受限外推**；
