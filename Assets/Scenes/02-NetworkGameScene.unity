@@ -13413,17 +13413,19 @@ MonoBehaviour:
   _playerController: {fileID: 165249410}
   _inputController: {fileID: 165249413}
   _lockManager: {fileID: 165249422}
+  _enableFootIK: 1
+  _idleSpeedThreshold: 0.1
   _groundLayers:
     serializedVersion: 2
     m_Bits: 4294967039
   _rayStartHeight: 0.45
   _rayDistance: 0.9
-  _soleOffset: 0.035
+  _soleOffset: 0.005
   _maxFootAngle: 45
   _weightSpeed: 8
   _footSharpness: 20
-  _maxPelvisDrop: 0.35
-  _maxPelvisRise: 0.1
+  _maxPelvisDrop: 0.08
+  _maxPelvisRise: 0.05
   _pelvisSharpness: 12
   _lookBodyWeight: 0.25
   _lookHeadWeight: 0.75

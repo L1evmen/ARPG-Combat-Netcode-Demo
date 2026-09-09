@@ -2,14 +2,15 @@ using CombatV2.LockOn;
 using UnityEngine;
 
 /// <summary>
-/// Humanoid animation post-process: grounded foot placement, pelvis correction,
-/// and a weighted look-at target while locked on.
+/// Humanoid animation post-process: grounded foot placement, limited pelvis
+/// correction, and a weighted look-at target while locked on.
 /// </summary>
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Animator))]
 public sealed class PlayerProceduralIK : MonoBehaviour
 {
     private static readonly int JumpingHash = Animator.StringToHash("isJump");
+    private static readonly int SpeedHash = Animator.StringToHash("Speed");
 
     [SerializeField] private Animator _animator;
     [SerializeField] private PlayerController _playerController;
@@ -17,17 +18,19 @@ public sealed class PlayerProceduralIK : MonoBehaviour
     [SerializeField] private TargetLockManager _lockManager;
 
     [Header("Foot IK")]
+    [SerializeField] private bool _enableFootIK = true;
+    [SerializeField, Min(0f)] private float _idleSpeedThreshold = 0.1f;
     [SerializeField] private LayerMask _groundLayers = -1;
     [SerializeField, Min(0f)] private float _rayStartHeight = 0.45f;
     [SerializeField, Min(0f)] private float _rayDistance = 0.9f;
-    [SerializeField, Min(0f)] private float _soleOffset = 0.035f;
+    [SerializeField, Min(0f)] private float _soleOffset = 0.005f;
     [SerializeField, Range(0f, 60f)] private float _maxFootAngle = 45f;
     [SerializeField, Min(0f)] private float _weightSpeed = 8f;
     [SerializeField, Min(0f)] private float _footSharpness = 20f;
 
     [Header("Pelvis")]
-    [SerializeField, Min(0f)] private float _maxPelvisDrop = 0.35f;
-    [SerializeField, Min(0f)] private float _maxPelvisRise = 0.1f;
+    [SerializeField, Min(0f)] private float _maxPelvisDrop = 0.08f;
+    [SerializeField, Min(0f)] private float _maxPelvisRise = 0.05f;
     [SerializeField, Min(0f)] private float _pelvisSharpness = 12f;
 
     [Header("Lock-on Look IK")]
@@ -109,7 +112,10 @@ public sealed class PlayerProceduralIK : MonoBehaviour
         if (slopeAngle > _maxFootAngle && slopeAngle > 0.001f)
             normal = Vector3.Slerp(Vector3.up, normal, _maxFootAngle / slopeAngle);
 
-        Vector3 targetPosition = hit.point + normal * _soleOffset;
+        float footBottomHeight = goal == AvatarIKGoal.LeftFoot
+            ? _animator.leftFeetBottomHeight
+            : _animator.rightFeetBottomHeight;
+        Vector3 targetPosition = hit.point + normal * (footBottomHeight + _soleOffset);
         Quaternion animationRotation = _animator.GetIKRotation(goal);
         Quaternion targetRotation = Quaternion.FromToRotation(Vector3.up, normal) * animationRotation;
 
@@ -133,10 +139,13 @@ public sealed class PlayerProceduralIK : MonoBehaviour
     {
         if (!leftHit && !rightHit) return 0f;
 
-        float leftOffset = leftHit && _leftFoot != null ? _leftPosition.y - _leftFoot.position.y : float.MaxValue;
-        float rightOffset = rightHit && _rightFoot != null ? _rightPosition.y - _rightFoot.position.y : float.MaxValue;
-        float offset = Mathf.Min(leftOffset, rightOffset);
-        return Mathf.Clamp(offset, -_maxPelvisDrop, _maxPelvisRise);
+        float leftOffset = leftHit
+            ? _leftPosition.y - _animator.GetIKPosition(AvatarIKGoal.LeftFoot).y
+            : float.MaxValue;
+        float rightOffset = rightHit
+            ? _rightPosition.y - _animator.GetIKPosition(AvatarIKGoal.RightFoot).y
+            : float.MaxValue;
+        return Mathf.Clamp(Mathf.Min(leftOffset, rightOffset), -_maxPelvisDrop, _maxPelvisRise);
     }
 
     private void ApplyFootGoal(AvatarIKGoal goal, bool hasGround, Vector3 position, Quaternion rotation)
@@ -185,6 +194,8 @@ public sealed class PlayerProceduralIK : MonoBehaviour
 
     private bool IsFootIKAllowed()
     {
+        if (!_enableFootIK || _animator.GetFloat(SpeedHash) > _idleSpeedThreshold)
+            return false;
         if (_playerController != null && !_playerController.isGrounded)
             return false;
         if (_inputController != null && _inputController.MovementBlocked)
