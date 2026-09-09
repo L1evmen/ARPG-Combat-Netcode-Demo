@@ -16,6 +16,8 @@
 
 基于 Netcode for GameObjects 与 Unity Transport 实现双人 Host / Client 联机：
 
+> [▶ 观看状态同步专项演示（B 站）](https://www.bilibili.com/video/BV1HfYW6dExK/)
+
 - 以 **20 Hz** 同步玩家与 Boss 的位姿、动画参数、动作状态和装备信息；
 - 远端副本使用 **100 ms 插值缓冲**，处理乱序快照并按序号去重，在包间隙内进行最长 **120 ms 的受限外推**；
 - Boss AI、生命状态、攻击请求与伤害结算由 Host 裁决；Host 同时校验客户端提交的移动快照、攻击距离与请求频率；
