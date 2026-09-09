@@ -43,6 +43,16 @@
 - `EnemyController` 使用 FSM 管理巡逻、追逐、攻击、受击与死亡，攻击窗口由 Animation Event 驱动；
 - 程序化双脚 IK 根据地面法线调整脚部与骨盆，缓解斜坡、台阶上的悬脚和穿模。
 
+#### Foot IK 对比
+
+关闭 Foot IK 时，双脚位置完全由原动画驱动，在台阶高度不一致时容易出现悬空或穿插；开启后，通过地面检测分别修正双脚位置与朝向，并联动调整骨盆高度，使脚掌更贴合台阶表面。
+
+| 关闭 Foot IK | 开启 Foot IK |
+| :---: | :---: |
+| [![关闭 Foot IK，脚部未适配台阶高度](docs/images/foot-ik-disabled.png)](docs/images/foot-ik-disabled.png) | [![开启 Foot IK，脚部贴合不同高度的台阶](docs/images/foot-ik-enabled.png)](docs/images/foot-ik-enabled.png) |
+
+> 放大镜展示脚部与台阶的接触细节；点击图片可查看原始尺寸。
+
 ### 数据与 UI
 
 - `InventoryService` 管理物品堆叠、排序与筛选，通过事件驱动装备、快捷栏与背包 UI 刷新；
