@@ -1,6 +1,9 @@
 # 3D 动作 RPG Demo（Unity 客户端）
 
-> Unity 2023.1.1f1 · 单人战斗 + 双人局域网联机 · [演示视频（B 站）](https://www.bilibili.com/video/BV1SwEy6sEEe/)
+> Unity 2023.1.1f1 · 单人战斗 + 双人局域网联机
+> [单机演示视频（B 站）](https://www.bilibili.com/video/BV1SwEy6sEEe/)
+> [状态同步演示视频（B 站）](https://www.bilibili.com/video/BV1HfYW6dExK/)
+
 
 独立设计并开发的第三人称动作 RPG 演示项目，包含连招战斗、Boss AI、目标锁定、背包装备、任务存档、设置与音频、局域网联机等模块。项目采用模块化、事件驱动的组织方式，背包 UI 使用 MVC 分层，可分别构建和运行单机与联机演示场景。
 
@@ -8,7 +11,7 @@
 
 ![项目演示画面](docs/images/cover.png)
 
-[▶ 观看完整演示](https://www.bilibili.com/video/BV1SwEy6sEEe/) · [架构说明](docs/architecture.md) · [联机验证记录](docs/verification.md)
+[架构说明](docs/architecture.md) · [联机验证记录](docs/verification.md)
 
 ## 技术亮点
 
