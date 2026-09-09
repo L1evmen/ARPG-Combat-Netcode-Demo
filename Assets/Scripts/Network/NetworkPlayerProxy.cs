@@ -122,10 +122,10 @@ namespace ARPG.Networking
             if (!IsServer || _alive.Value || NetworkManager.ServerTime.Time < _respawnTime)
                 return;
 
-            transform.position = NetworkSessionController.Instance.GetSpawnPosition(OwnerClientId);
             _hasAcceptedSnapshot = false;
             _health.Value = _maxHealth;
             _alive.Value = true;
+            NetworkBossSynchronizer.Instance?.ServerRefreshPartyState();
         }
 
         private void SetupOwner()
@@ -254,6 +254,7 @@ namespace ARPG.Networking
 
             _alive.Value = false;
             _respawnTime = now + RespawnDelay;
+            NetworkBossSynchronizer.Instance?.ServerRefreshPartyState();
         }
 
         private bool ValidateSnapshot(CharacterStateSnapshot snapshot)
@@ -283,8 +284,6 @@ namespace ARPG.Networking
                 _localCombo.enabled = current;
                 SetRenderersEnabled(_localPlayer, current);
 
-                if (current && !previous)
-                    SetLocalPlayerPosition(NetworkSessionController.Instance.GetSpawnPosition(OwnerClientId));
             }
             else if (_replica != null)
             {

@@ -32,6 +32,7 @@ namespace ARPG.Networking
         private NavMeshAgent _agent;
         private CharacterStateSynchronizer _synchronizer;
         private HitBox[] _hitBoxes;
+        private bool _partyDefeated;
 
         public static NetworkBossSynchronizer Instance { get; private set; }
         public bool CanReceiveDamage => IsServer && _boss.IsActivated && !_boss.IsDead;
@@ -123,6 +124,23 @@ namespace ARPG.Networking
         {
             if (!CanReceiveDamage) return;
             _boss.TakeDamage(damage, source);
+        }
+
+        public void ServerRefreshPartyState()
+        {
+            if (!IsServer || !IsSpawned || _boss.IsDead) return;
+
+            bool defeated = !CombatTargetRegistry.TryGetClosest(transform.position, out _);
+            if (defeated == _partyDefeated) return;
+
+            _partyDefeated = defeated;
+            ReceivePartyStateClientRpc(defeated);
+        }
+
+        [ClientRpc]
+        private void ReceivePartyStateClientRpc(bool defeated)
+        {
+            AudioManager.Instance?.GetComponent<CombatMusicController>()?.SetPartyDefeated(defeated);
         }
 
         private void SendSnapshot(CharacterStateSnapshot snapshot)

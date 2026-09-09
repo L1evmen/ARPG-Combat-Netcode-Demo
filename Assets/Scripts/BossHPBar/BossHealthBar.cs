@@ -38,6 +38,8 @@ public class BossHealthBar : MonoBehaviour
 
     public void Show(string bossName)
     {
+        if (_isVisible) return;
+
         _isVisible = true;
         if (_panelRoot != null) _panelRoot.SetActive(true);
 

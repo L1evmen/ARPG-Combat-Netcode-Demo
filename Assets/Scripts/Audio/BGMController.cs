@@ -70,6 +70,12 @@ public class BGMController : MonoBehaviour
 
     public void RequestState(BGMState newState)
     {
+        if (newState != CurrentState && _waitForEndRoutine != null)
+        {
+            StopCoroutine(_waitForEndRoutine);
+            _waitForEndRoutine = null;
+        }
+
         _pendingState = newState;
         _lastStateChangeRequest = Time.unscaledTime;
 
